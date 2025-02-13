@@ -11,6 +11,13 @@ public class Employee {
     private String address;
     private Fonction fonction;
 
+    public Employee(){
+        this.name = null;
+        this.email = null;
+        this.phone = null;
+        this.address = null;
+        this.fonction = null;
+    }
     public Employee(String name, String email, String phone, String address, Fonction fonction){
         this.name = name;
         this.email = email;

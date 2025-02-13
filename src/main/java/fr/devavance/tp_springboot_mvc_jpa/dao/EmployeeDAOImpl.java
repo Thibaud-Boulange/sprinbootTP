@@ -5,6 +5,8 @@ import fr.devavance.tp_springboot_mvc_jpa.beans.Employee;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class EmployeeDAOImpl implements IEmployeeDAO{
 
@@ -25,7 +27,7 @@ public class EmployeeDAOImpl implements IEmployeeDAO{
     }
 
 
-    public ArrayList<Employee> findAll(){return this.ls_employee;}
+    public List<Employee> findAll(){return this.ls_employee;}
 
     public void add(Employee e){ this.ls_employee.add(e);}
 
