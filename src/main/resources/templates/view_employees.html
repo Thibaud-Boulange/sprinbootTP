@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des employees</title>
+    <link rel="stylesheet" href="../static/picnic.css">
+</head>
+<body>
+<h1>Liste des employées</h1>
+<ul>
+    <li th:each="employee : ${employees}" th:text="${employee.name}" th:attr="style='background:' + ${employee.fonction.getCodeCouleur()}"></li>
+</ul>
+<h1>Formulaire d'ajout d'employées</h1>
+<form method="post" th:action="@{/addemployee}" th:object="${employee}">
+    <label>Nom :<input type="text" th:field="*{name}"></label><br>
+    <label>Adresse :<input type="text" th:field="*{address}"></label><br>
+    <label>Courriel :<input type="text" th:field="*{email}"></label><br>
+    <label>Tél. :<input type="text" th:field="*{phone}"></label><br>
+    <label>Fonction :<select th:field="*{fonction}">
+        <option th:each="colorOpt : ${T(fr.devavance.tp_springboot_mvc_jpa.Fonction).values()}"
+                th:value="${colorOpt}" th:text="${colorOpt}"></option>
+    </select></label><br>
+    <input type="submit" value="Envoyer">
+</form>
+</body>
+</html>
