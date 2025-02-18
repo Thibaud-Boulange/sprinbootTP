@@ -6,6 +6,7 @@ import fr.devavance.tp_springboot_mvc_jpa.beans.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -30,5 +31,11 @@ public class EmployeeControleur implements IEmployeeController {
     public String addEmployee(Employee employee){
         this.employeeRepository.save(employee);
         return "redirect:/employee";
+    }
+
+    @RequestMapping(value = "/{id}")
+    public String displayEmployee(@PathVariable(name="id") Long id, Model model) {
+        model.addAttribute("employee",this.employeeRepository.findById(id));
+        return "view_employee";
     }
 }

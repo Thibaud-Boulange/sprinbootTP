@@ -7,4 +7,6 @@ public interface IEmployeeController {
 
     public String displayHome(Model model);
     public String addEmployee(Employee employee);
+
+    public String displayEmployee(Long id,  Model model);
 }
